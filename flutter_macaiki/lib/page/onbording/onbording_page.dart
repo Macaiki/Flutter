@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/onbording/onbording_page_1.dart';
-import 'package:flutter_macaiki/page/splash_page/onbording_page_2.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'onbording_page_2.dart';
 
 class OnbordingPage extends StatefulWidget {
   OnbordingPage({Key? key}) : super(key: key);

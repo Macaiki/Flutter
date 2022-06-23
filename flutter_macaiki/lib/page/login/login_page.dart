@@ -1,6 +1,12 @@
 // import 'package:email_validator/email_validator.dart' show EmailValidator;
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/forget_password/forget_password_1.dart';
+import 'package:flutter_macaiki/page/signup/signup_page.dart';
+import 'package:flutter_macaiki/provider/auth_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,214 +26,261 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(20, 20, 20, 20),
+      backgroundColor: const Color(0xff181818),
       body: Form(
         key: formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              left: 18,
+              right: 18,
+            ),
             child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            //Gambar Bulan
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Image.asset(
-                  'assets/images/login_images.png',
-                  height: 138,
-                  width: 188,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 7,
-            ),
-            //Text Macaiki
-            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(
-                  'assets/images/Macaiki_images.png',
-                  height: 60,
-                  width: 128,
+                SizedBox(
+                  height: 30,
                 ),
-              ],
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            //Text login dulu yuk...
-            Text(
-              'Login dulu yuk, agar bisa menikmati fitur-fitur Macaiki dengan nyaman.',
-              style: GoogleFonts.poppins(
-                color: const Color(0x00f6f7fc),
-                fontSize: 12,
-              ),
-            ),
-            const SizedBox(
-              height: 46,
-            ),
-            //Email
-            Text(
-              'Email',
-              style: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            TextFormField(
-              controller: _emailController,
-              // validator: (email) {
-              //   if (email != null && !EmailValidator.validate(email)) {
-              //     return "Email a valid email";
-              //   } else {
-              //     return null;
-              //   }
-              // },
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(20, 20, 20, 20),
-                  ),
-                ),
-                hintText: 'Masukan email terdaftar',
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 14,
-            ),
-            //Passward
-            Text(
-              'Password',
-              style: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            TextFormField(
-              controller: _passwordController,
-              validator: (value) {
-                if (value != null && value.length < 5) {
-                  return 'Enter min. 5 characters';
-                } else {
-                  return null;
-                }
-              },
-              obscureText: true,
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(20, 20, 20, 20),
-                  ),
-                ),
-                hintText: 'Lupa Password?',
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                ),
-                suffixIcon: const Icon(
-                  Icons.visibility_outlined,
-                  color: Color(0x00f6f7fc),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 9,
-            ),
-            //Text lupa pasword
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    'Lupa Password?',
-                    style: GoogleFonts.poppins(
-                      color: const Color(0x00BC6FF1),
-                      fontWeight: FontWeight.normal,
-                      fontSize: 12,
+                //Gambar Bulan
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      'assets/images/login_images.png',
+                      height: 138,
+                      width: 188,
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            //Bottom login
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 25, 10, 25),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x00bc6ff1),
-                  borderRadius: BorderRadius.circular(12),
+                SizedBox(
+                  height: 7,
                 ),
-                child: InkWell(
-                  splashColor: const Color(0x00bc6ff1),
-                  onTap: () {},
-                  child: Center(
-                    child: Text(
-                      'LOGIN',
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        color: const Color(0x00f6f7fc),
-                        fontWeight: FontWeight.bold,
-                      ),
+                //Text Macaiki
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/Macaiki_images.png',
+                      height: 60,
+                      width: 128,
                     ),
-                  ),
+                  ],
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 164,
-            ),
-            //Text belum punya...
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+                SizedBox(
+                  height: 5,
+                ),
+                //Text login dulu yuk...
                 Text(
-                  'Belum punya akun? ',
+                  'Login dulu yuk, agar bisa menikmati fitur-fitur Macaiki dengan nyaman.',
                   style: GoogleFonts.poppins(
-                    color: const Color(0x00ffffff),
+                    color: Color(0xffF6F7FC),
                     fontSize: 12,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                const SizedBox(
+                  height: 46,
+                ),
+                //Email
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Email',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xffF6F7FC),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
                       ),
-                    );
-                  },
-                  child: const Text(
-                    'Daftar',
-                    style: TextStyle(
-                      color: Color(0x00BC6FF1),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                TextFormField(
+                  style: GoogleFonts.poppins(
+                    color: Color(0xffF6F7FC),
+                  ),
+                  controller: _emailController,
+                  // validator: (email) {
+                  //   if (email != null && !EmailValidator.validate(email)) {
+                  //     return "Email a valid email";
+                  //   } else {
+                  //     return null;
+                  //   }
+                  // },
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xffF6F7FC),
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fillColor: Color(0xff262626),
+                    filled: true,
+                    hintText: 'Masukan email terdaftar',
+                    hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 14,
+                ),
+                //Passward
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Password',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xffF6F7FC),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                TextFormField(
+                  style: GoogleFonts.poppins(
+                    color: Color(0xffF6F7FC),
+                  ),
+                  controller: _passwordController,
+                  validator: (value) {
+                    if (value != null && value.length < 5) {
+                      return 'Enter min. 5 characters';
+                    } else {
+                      return null;
+                    }
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xffF6F7FC),
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fillColor: Color(0xff262626),
+                    filled: true,
+                    hintText: 'Masukkan Password',
+                    hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
+                    ),
+                    suffixIcon: const Icon(
+                      Icons.visibility_outlined,
+                      color: Color(0xffF6F7FC),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 9,
+                ),
+                //Text lupa pasword
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ForgetPassword1(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Lupa Password?',
+                        style: GoogleFonts.poppins(
+                          color: const Color(0xffBC6FF1),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                //Bottom login
+                Container(
+                  width: 380,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffBC6FF1),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      userProvider.login(
+                        _emailController.text,
+                        _passwordController.text,
+                        context,
+                      );
+                    },
+                    child: Center(
+                      child: Text(
+                        'LOGIN',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: const Color(0xffF6F7FC),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                //Text belum punya...
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Belum punya akun? ',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xffF6F7FC),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignupPage(),
+                          ),
+                        );
+                      },
+                      child: Text('Daftar',
+                          style: GoogleFonts.poppins(
+                            color: Color(0xffBC6FF1),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12,
+                          )),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ],
-        )),
+          ),
+        ),
       ),
     );
   }

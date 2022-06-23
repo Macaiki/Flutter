@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/model/auth_model.dart';
 import 'package:flutter_macaiki/page/login/login_page.dart';
+import 'package:flutter_macaiki/provider/auth_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupPage extends StatefulWidget {
@@ -16,319 +19,382 @@ class _SignupPageState extends State<SignupPage> {
   final _emailController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  late SharedPreferences logindata;
+  final _confrimePassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(20, 20, 20, 20),
+      backgroundColor: const Color(0xff181818),
       body: Form(
         key: formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: SafeArea(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            //Gambar Bulan
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Image.asset(
-                  'assets/images/login_images.png',
-                  height: 138,
-                  width: 188,
-                ),
-              ],
+        child: SingleChildScrollView(
+          child: SafeArea(
+              child: Padding(
+            padding: const EdgeInsets.only(
+              left: 18,
+              right: 18,
             ),
-            //Text Macaiki
-            Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(
-                  'assets/images/Macaiki_images.png',
-                  height: 60,
-                  width: 128,
+                //Gambar Bulan
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      'assets/images/login_images.png',
+                      height: 138,
+                      width: 188,
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            //Text login dulu yuk...
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              'Yuk jadi bagian dari Macaiki dengan mendaftarkan akun terlebih dahulu.',
-              style: GoogleFonts.poppins(
-                color: const Color(0x00f6f7fc),
-                fontSize: 12,
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            //Email
-            Text(
-              'Email',
-              style: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            TextFormField(
-              controller: _emailController,
-              // validator: (email) {
-              //   if (email != null && !EmailValidator.validate(email)) {
-              //     return "Email a valid email";
-              //   } else {
-              //     return null;
-              //   }
-              // },
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(20, 20, 20, 20),
-                  ),
+                //Text Macaiki
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/images/Macaiki_images.png',
+                      height: 60,
+                      width: 128,
+                    ),
+                  ],
                 ),
-                hintText: 'Masukan email terdaftar',
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 14,
-            ),
-            //Username
-            Text(
-              'Username',
-              style: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            TextFormField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(20, 20, 20, 20),
-                  ),
-                ),
-                hintText: 'Buat username Macaiki kamu',
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 14,
-            ),
-            //Passward
-            Text(
-              'Password',
-              style: GoogleFonts.poppins(
-                color: const Color(0x00f6f7fc),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            TextFormField(
-              controller: _passwordController,
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please Re-Enter  New Password';
-                } else if (value != _passwordController) {
-                  return 'Not Match';
-                } else {
-                  return null;
-                }
-              },
-              obscureText: true,
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(20, 20, 20, 20),
-                  ),
-                ),
-                hintText: 'Masukan email terdaftar',
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                ),
-                suffixIcon: const Icon(
-                  Icons.visibility_outlined,
-                  color: Color(0x00f6f7fc),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 14,
-            ),
-            //Konfirmasi Paswaord
-            Text(
-              'Konfirmasi Password',
-              style: GoogleFonts.poppins(
-                color: const Color(0x00f6f7fc),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            TextFormField(
-              controller: _passwordController,
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please Re-Enter  New Password';
-                } else if (value != _passwordController) {
-                  return 'Not Match';
-                } else {
-                  return null;
-                }
-              },
-              obscureText: true,
-              decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color.fromARGB(20, 20, 20, 20),
-                  ),
-                ),
-                hintText: 'Masukan password',
-                hintStyle: GoogleFonts.poppins(
-                  color: const Color(0x00f6f7fc),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            //Text Dengan klik...
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Dengan klik SIGN UP, kamu telah menyetujui ',
-                  style: GoogleFonts.poppins(
-                    color: const Color(0x00BC6FF1),
-                    fontWeight: FontWeight.normal,
-                    fontSize: 10,
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Syarat dan Ketentuan ',
-                  style: GoogleFonts.poppins(
-                    color: const Color(0x00BC6FF1),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                  ),
+                //Text login dulu yuk...
+                const SizedBox(
+                  height: 5,
                 ),
                 Text(
-                  'serta ',
+                  'Yuk jadi bagian dari Macaiki dengan mendaftarkan akun terlebih dahulu.',
                   style: GoogleFonts.poppins(
-                    color: const Color(0x00BC6FF1),
-                    fontWeight: FontWeight.normal,
-                    fontSize: 10,
+                    color: const Color(0xfff6f7fc),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                Text(
-                  'Kebijakan Privasi ',
-                  style: GoogleFonts.poppins(
-                    color: const Color(0x00BC6FF1),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                  ),
+                const SizedBox(
+                  height: 25,
                 ),
-                Text(
-                  'MACAIKI ',
-                  style: GoogleFonts.poppins(
-                    color: const Color(0x00BC6FF1),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            //Bottom Sign Up
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 25, 10, 25),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0x00bc6ff1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: InkWell(
-                  splashColor: const Color(0x00bc6ff1),
-                  onTap: () {},
-                  child: Center(
-                    child: Text(
-                      'SIGN UP',
+                //Email
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Email',
                       style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        color: const Color(0x00f6f7fc),
-                        fontWeight: FontWeight.bold,
+                        color: const Color(0xfff6f7fc),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
                       ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                TextFormField(
+                  controller: _emailController,
+                  // validator: (email) {
+                  //   if (email != null && !EmailValidator.validate(email)) {
+                  //     return "Email a valid email";
+                  //   } else {
+                  //     return null;
+                  //   }
+                  // },
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xffF6F7FC),
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fillColor: Color(0xff262626),
+                    filled: true,
+                    hintText: 'Masukan email kamu',
+                    hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
                     ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 46,
-            ),
-            //Text sudah punya...
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Sudah punya akun ',
-                  style: GoogleFonts.poppins(
-                    color: const Color(0x00ffffff),
-                    fontSize: 12,
+                const SizedBox(
+                  height: 14,
+                ),
+                //Username
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Username',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xfff6f7fc),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                TextFormField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xffF6F7FC),
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fillColor: const Color(0xff262626),
+                    filled: true,
+                    hintText: 'Buat username macaiki kamu',
+                    hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
+                    ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                const SizedBox(
+                  height: 14,
+                ),
+                //Passward
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Password',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xfff6f7fc),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
                       ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                TextFormField(
+                  controller: _passwordController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please Re-Enter  New Password';
+                    } else {
+                      return null;
+                    }
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xffF6F7FC),
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fillColor: Color(0xff262626),
+                    filled: true,
+                    hintText: 'Masukkan Password',
+                    hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
+                    ),
+                    suffixIcon: const Icon(
+                      Icons.visibility_outlined,
+                      color: Color(0xffF6F7FC),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 14,
+                ),
+                //Konfirmasi Paswaord
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Konfirmasi Password',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xfff6f7fc),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                TextFormField(
+                  controller: _confrimePassword,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please Re-Enter Password';
+                    } else if (_passwordController.text !=
+                        _confrimePassword.text) {
+                      return 'Not Match';
+                    } else {
+                      return null;
+                    }
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Color(0xffF6F7FC),
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fillColor: Color(0xff262626),
+                    filled: true,
+                    hintText: 'Konfirmasi Password',
+                    hintStyle: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
+                    ),
+                    suffixIcon: const Icon(
+                      Icons.visibility_outlined,
+                      color: Color(0xffF6F7FC),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Column(
+                  children: [
+                    Center(
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Dengan klik SIGN UP, kamu telah menyetujui',
+                          style: GoogleFonts.poppins(
+                            color: Color(0xffF6F7FC),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'Syarat dan Ketentuan',
+                              style: GoogleFonts.poppins(
+                                color: Color(0xffBC6FF1),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'serta',
+                              style: GoogleFonts.poppins(
+                                color: Color(0xffF6F7FC),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Kebijakan Privasi',
+                              style: GoogleFonts.poppins(
+                                color: Color(0xffBC6FF1),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'MACAIKI!',
+                              style: GoogleFonts.poppins(
+                                color: Color(0xffF6F7FC),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                //Bottom Sign Up
+                InkWell(
+                  onTap: () {
+                    userProvider.register(
+                      _usernameController.text,
+                      _emailController.text,
+                      _passwordController.text,
+                      _confrimePassword.text,
+                      context,
                     );
                   },
-                  child: const Text(
-                    'Masuk',
-                    style: TextStyle(
-                      color: Color(0x00BC6FF1),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
+                  child: Container(
+                    width: 380,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffBC6FF1),
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'SIGN UP',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: const Color(0xffF6F7FC),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 46,
+                ),
+                //Text sudah punya...
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Sudah punya akun ',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xFFffffff),
+                        fontSize: 12,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Masuk',
+                        style: TextStyle(
+                          color: Color(0xFFBC6FF1),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
               ],
             ),
-          ],
-        )),
+          )),
+        ),
       ),
     );
   }
