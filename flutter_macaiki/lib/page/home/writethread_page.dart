@@ -4,7 +4,7 @@ import 'package:open_file/open_file.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WriteThreadPage extends StatefulWidget {
-  WriteThreadPage({Key? key}) : super(key: key);
+  const WriteThreadPage({Key? key}) : super(key: key);
 
   @override
   State<WriteThreadPage> createState() => _WritePageState();
@@ -26,16 +26,16 @@ class _WritePageState extends State<WriteThreadPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff181818),
+      backgroundColor: const Color(0xff181818),
       appBar: AppBar(
-        backgroundColor: Color(0xff181818),
+        backgroundColor: const Color(0xff181818),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Write thread',
               style: GoogleFonts.poppins(
-                color: Color(0xffF6F7FC),
+                color: const Color(0xffF6F7FC),
                 fontSize: 14,
               ),
             ),
@@ -44,7 +44,7 @@ class _WritePageState extends State<WriteThreadPage> {
               child: Text(
                 'Publish',
                 style: GoogleFonts.poppins(
-                  color: Color(0xffF6F7FC),
+                  color: const Color(0xffF6F7FC),
                   fontSize: 12,
                 ),
               ),
@@ -53,26 +53,26 @@ class _WritePageState extends State<WriteThreadPage> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.fromLTRB(20, 30, 10, 15),
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.fromLTRB(20, 30, 10, 15),
         child: Column(
           children: [
             Flexible(
               flex: 1,
-              child: Container(
+              child: SizedBox(
                 height: 100,
                 child: Row(
                   children: [
-                    CircleAvatar(),
-                    SizedBox(
+                    const CircleAvatar(),
+                    const SizedBox(
                       width: 8,
                     ),
-                    Icon(Icons.play_arrow),
-                    SizedBox(
+                    const Icon(Icons.play_arrow),
+                    const SizedBox(
                       width: 8,
                     ),
                     DropdownButton(
-                      dropdownColor: Color(0xff181818),
+                      dropdownColor: const Color(0xff181818),
                       borderRadius: BorderRadius.circular(10),
                       value: dropdownValue,
                       onChanged: (int? value) {
@@ -85,17 +85,17 @@ class _WritePageState extends State<WriteThreadPage> {
                           value: 0,
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.public,
                                 color: Color(0xffF6F7FC),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               Text(
                                 'Public',
                                 style: GoogleFonts.poppins(
-                                  color: Color(0xffF6F7FC),
+                                  color: const Color(0xffF6F7FC),
                                   fontSize: 12,
                                 ),
                               ),
@@ -106,17 +106,17 @@ class _WritePageState extends State<WriteThreadPage> {
                           value: 1,
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.lock,
                                 color: Color(0xffF6F7FC),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               Text(
                                 'Private',
                                 style: GoogleFonts.poppins(
-                                  color: Color(0xffF6F7FC),
+                                  color: const Color(0xffF6F7FC),
                                   fontSize: 12,
                                 ),
                               ),
@@ -129,7 +129,7 @@ class _WritePageState extends State<WriteThreadPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Flexible(
@@ -137,22 +137,22 @@ class _WritePageState extends State<WriteThreadPage> {
               flex: 10,
               child: TextField(
                 maxLines: 5,
-                cursorColor: Color(0xff181818),
+                cursorColor: const Color(0xff181818),
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide.none,
                   ),
                   fillColor: Colors.white,
                   hintText: "Tulis sesuati atau tambah hastag",
                   hintStyle: GoogleFonts.poppins(
-                    color: Color(0xffF6F7FC),
+                    color: const Color(0xffF6F7FC),
                     fontSize: 12,
                   ),
                 ),
               ),
             ),
             Container(
-              color: Color(0xff262626),
+              color: const Color(0xff262626),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -160,14 +160,14 @@ class _WritePageState extends State<WriteThreadPage> {
                     onPressed: () {
                       _pickerFile();
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.broken_image_outlined,
                       color: Color(0xffF6F7FC),
                     ),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.link_rounded,
                       color: Color(0xffF6F7FC),
                     ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/followers/widget/followers_list.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Followers extends StatelessWidget {
   const Followers({Key? key}) : super(key: key);
@@ -14,7 +13,7 @@ class Followers extends StatelessWidget {
           right: 30,
         ),
         child: ListView(
-          children: [
+          children: const [
             FollowersList(),
           ],
         ),

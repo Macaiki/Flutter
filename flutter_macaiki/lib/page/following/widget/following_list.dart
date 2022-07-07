@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/model/followers_model.dart';
-import 'package:flutter_macaiki/page/followers/widget/followers_card.dart';
 import 'package:flutter_macaiki/page/following/widget/following_card.dart';
 
 class FollowingList extends StatelessWidget {

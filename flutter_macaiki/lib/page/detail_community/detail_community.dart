@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/detail_community/widget/cover_image.dart';
+import 'package:flutter_macaiki/page/detail_community/widget/threads.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailCommunity extends StatefulWidget {
@@ -26,7 +27,7 @@ class _DetailCommunityState extends State<DetailCommunity> {
             ),
             child: Column(
               children: [
-                coverImage(),
+                coverImage(context),
                 Container(
                   transform: Matrix4.translationValues(0.0, -40.0, 0.0),
                   padding: const EdgeInsets.symmetric(
@@ -75,13 +76,25 @@ class _DetailCommunityState extends State<DetailCommunity> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Text(
-                        'Community',
-                        style: GoogleFonts.poppins(
-                          color: const Color(0xffA5A5A5),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            'Community',
+                            style: GoogleFonts.poppins(
+                              color: const Color(0xffA5A5A5),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const Expanded(
+                            child: SizedBox(),
+                          ),
+                          Image.asset(
+                            'assets/icons/Info.png',
+                            width: 24,
+                            height: 24,
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -92,6 +105,7 @@ class _DetailCommunityState extends State<DetailCommunity> {
           const SizedBox(
             height: 6,
           ),
+          threads(context),
         ],
       ),
     );

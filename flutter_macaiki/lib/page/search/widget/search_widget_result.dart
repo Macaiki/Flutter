@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/page/home/home_page.dart';
 import 'package:flutter_macaiki/page/search/search_page.dart';
 import 'package:flutter_macaiki/page/search/search_result.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,7 +25,7 @@ Widget searchWidgetResult(BuildContext context) {
         width: 19,
       ),
       Flexible(
-        child: Container(
+        child: SizedBox(
           width: 291,
           height: 40,
           child: TextFormField(

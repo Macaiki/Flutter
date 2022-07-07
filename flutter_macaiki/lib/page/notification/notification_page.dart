@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/model/notif_model.dart';
 import 'package:flutter_macaiki/page/notification/widget/navbar.dart';
-import 'package:flutter_macaiki/page/notification/widget/notif_card.dart';
 import 'package:flutter_macaiki/page/notification/widget/notif_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 

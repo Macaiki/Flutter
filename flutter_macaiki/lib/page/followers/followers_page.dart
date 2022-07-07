@@ -36,7 +36,7 @@ class _FollowersPageState extends State<FollowersPage>
               SliverAppBar(
                 floating: true,
                 pinned: true,
-                backgroundColor: Color(0xff181818),
+                backgroundColor: const Color(0xff181818),
                 bottom: TabBar(
                   controller: _tabController,
                   indicatorColor: const Color(0xffBC6FF1),

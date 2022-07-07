@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/page/home/home_page.dart';
 import 'package:flutter_macaiki/page/profile/widget/cover_image.dart';
 import 'package:flutter_macaiki/page/profile/widget/navbar.dart';
 import 'package:flutter_macaiki/page/profile/widget/profile_picture.dart';
@@ -41,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               children: [
                 coverImage(),
-                ProfilePicture(),
+                const ProfilePicture(),
               ],
             ),
           ),

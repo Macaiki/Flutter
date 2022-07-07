@@ -6,7 +6,7 @@ class AuthModel {
   });
 
   AuthModel.fromJson(Map<String, dynamic> json) {
-    meta = json['Meta'] != null ? new Meta.fromJson(json['Meta']) : null;
+    meta = json['Meta'] != null ? Meta.fromJson(json['Meta']) : null;
   }
 }
 
@@ -22,9 +22,9 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['code'] = this.code;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['code'] = code;
     return data;
   }
 }

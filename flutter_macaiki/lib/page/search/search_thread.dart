@@ -359,7 +359,7 @@ class SearchThread extends StatelessWidget {
                         Text(
                           'Menguak lokasi asli dari desa tempat KKN DESA DANCE?!',
                           style: GoogleFonts.poppins(
-                            color: Color(0xffF6F5FC),
+                            color: const Color(0xffF6F5FC),
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),

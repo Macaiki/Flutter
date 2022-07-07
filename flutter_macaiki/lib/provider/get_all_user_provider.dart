@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/model/get_all_user_model.dart';
-import 'package:flutter_macaiki/model/get_thereads.dart';
 import 'package:flutter_macaiki/service/get_all_user_service.dart';
-import 'package:flutter_macaiki/service/get_thereads_service.dart';
 
 class GetAllUserProvider extends ChangeNotifier {
   final GetAllUserService getAllUserService = GetAllUserService();

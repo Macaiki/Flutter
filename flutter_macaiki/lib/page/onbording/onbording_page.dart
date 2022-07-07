@@ -5,7 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'onbording_page_2.dart';
 
 class OnbordingPage extends StatefulWidget {
-  OnbordingPage({Key? key}) : super(key: key);
+  const OnbordingPage({Key? key}) : super(key: key);
 
   @override
   State<OnbordingPage> createState() => _OnbordingPageState();
@@ -20,7 +20,7 @@ class _OnbordingPageState extends State<OnbordingPage> {
         children: [
           PageView(
             controller: _controller,
-            children: [
+            children: const [
               OnbordingPage2(),
               OnbordingPage1(),
             ],

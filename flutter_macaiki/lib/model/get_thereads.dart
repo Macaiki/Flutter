@@ -5,19 +5,19 @@ class GetThreads {
   GetThreads({this.meta, this.data});
 
   GetThreads.fromJson(Map<String, dynamic> json) {
-    meta = json['Meta'] != null ? new Meta.fromJson(json['Meta']) : null;
+    meta = json['Meta'] != null ? Meta.fromJson(json['Meta']) : null;
     if (json['Data'] != null) {
       data = <Data>[];
       json['Data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.meta != null) {
-      data['Meta'] = this.meta!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (meta != null) {
+      data['Meta'] = meta!.toJson();
     }
     if (this.data != null) {
       data['Data'] = this.data!.map((v) => v.toJson()).toList();
@@ -38,9 +38,9 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['code'] = this.code;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['code'] = code;
     return data;
   }
 }
@@ -92,20 +92,20 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ID'] = this.iD;
-    data['title'] = this.title;
-    data['body'] = this.body;
-    data['communityID'] = this.communityID;
-    data['imageURL'] = this.imageURL;
-    data['userID'] = this.userID;
-    data['userName'] = this.userName;
-    data['userProfession'] = this.userProfession;
-    data['userProfilePictureURL'] = this.userProfilePictureURL;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['likesCount'] = this.likesCount;
-    data['isLiked'] = this.isLiked;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID'] = iD;
+    data['title'] = title;
+    data['body'] = body;
+    data['communityID'] = communityID;
+    data['imageURL'] = imageURL;
+    data['userID'] = userID;
+    data['userName'] = userName;
+    data['userProfession'] = userProfession;
+    data['userProfilePictureURL'] = userProfilePictureURL;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['likesCount'] = likesCount;
+    data['isLiked'] = isLiked;
     return data;
   }
 }

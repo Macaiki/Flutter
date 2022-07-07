@@ -1,10 +1,9 @@
-import 'dart:convert';
+// ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
 import 'package:flutter_macaiki/model/auth_model.dart';
 import 'package:flutter_macaiki/model/login_model.dart';
 import 'package:flutter_macaiki/utill/endpoint.dart';
-import 'package:http/http.dart' as http;
 
 class AuthService {
   Future<AuthModel?> register(
@@ -20,8 +19,6 @@ class AuthService {
         "password": password,
         "passwordConfirmation": passwordConfirmation,
       };
-
-      print(body.toString());
       final response = await Dio().post(
         '${Endpoint1.url}/register',
         data: body,

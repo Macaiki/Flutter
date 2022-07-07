@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/model/auth_model.dart';
 import 'package:flutter_macaiki/page/login/login_page.dart';
 import 'package:flutter_macaiki/provider/auth_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -112,7 +110,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    fillColor: Color(0xff262626),
+                    fillColor: const Color(0xff262626),
                     filled: true,
                     hintText: 'Masukan email kamu',
                     hintStyle: GoogleFonts.poppins(
@@ -200,7 +198,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    fillColor: Color(0xff262626),
+                    fillColor: const Color(0xff262626),
                     filled: true,
                     hintText: 'Masukkan Password',
                     hintStyle: GoogleFonts.poppins(
@@ -255,7 +253,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    fillColor: Color(0xff262626),
+                    fillColor: const Color(0xff262626),
                     filled: true,
                     hintText: 'Konfirmasi Password',
                     hintStyle: GoogleFonts.poppins(
@@ -267,7 +265,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Column(
@@ -277,7 +275,7 @@ class _SignupPageState extends State<SignupPage> {
                         text: TextSpan(
                           text: 'Dengan klik SIGN UP, kamu telah menyetujui',
                           style: GoogleFonts.poppins(
-                            color: Color(0xffF6F7FC),
+                            color: const Color(0xffF6F7FC),
                             fontSize: 10,
                             fontWeight: FontWeight.w400,
                           ),
@@ -285,7 +283,7 @@ class _SignupPageState extends State<SignupPage> {
                             TextSpan(
                               text: 'Syarat dan Ketentuan',
                               style: GoogleFonts.poppins(
-                                color: Color(0xffBC6FF1),
+                                color: const Color(0xffBC6FF1),
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -293,7 +291,7 @@ class _SignupPageState extends State<SignupPage> {
                             TextSpan(
                               text: 'serta',
                               style: GoogleFonts.poppins(
-                                color: Color(0xffF6F7FC),
+                                color: const Color(0xffF6F7FC),
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -301,7 +299,7 @@ class _SignupPageState extends State<SignupPage> {
                             TextSpan(
                               text: 'Kebijakan Privasi',
                               style: GoogleFonts.poppins(
-                                color: Color(0xffBC6FF1),
+                                color: const Color(0xffBC6FF1),
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -309,7 +307,7 @@ class _SignupPageState extends State<SignupPage> {
                             TextSpan(
                               text: 'MACAIKI!',
                               style: GoogleFonts.poppins(
-                                color: Color(0xffF6F7FC),
+                                color: const Color(0xffF6F7FC),
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -373,7 +371,7 @@ class _SignupPageState extends State<SignupPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginPage(),
+                            builder: (context) => const LoginPage(),
                           ),
                         );
                       },

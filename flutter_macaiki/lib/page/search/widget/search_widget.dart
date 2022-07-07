@@ -25,7 +25,7 @@ Widget searchWidget(BuildContext context) {
         width: 19,
       ),
       Flexible(
-        child: Container(
+        child: SizedBox(
           width: 291,
           height: 40,
           child: Stack(

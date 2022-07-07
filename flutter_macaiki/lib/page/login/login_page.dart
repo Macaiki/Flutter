@@ -1,6 +1,3 @@
-// import 'package:email_validator/email_validator.dart' show EmailValidator;
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/forget_password/forget_password_1.dart';
 import 'package:flutter_macaiki/page/signup/signup_page.dart';
@@ -41,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 //Gambar Bulan
@@ -55,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 7,
                 ),
                 //Text Macaiki
@@ -69,14 +66,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 //Text login dulu yuk...
                 Text(
                   'Login dulu yuk, agar bisa menikmati fitur-fitur Macaiki dengan nyaman.',
                   style: GoogleFonts.poppins(
-                    color: Color(0xffF6F7FC),
+                    color: const Color(0xffF6F7FC),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -123,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    fillColor: Color(0xff262626),
+                    fillColor: const Color(0xff262626),
                     filled: true,
                     hintText: 'Masukan email terdaftar',
                     hintStyle: GoogleFonts.poppins(
@@ -153,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   style: GoogleFonts.poppins(
-                    color: Color(0xffF6F7FC),
+                    color: const Color(0xffF6F7FC),
                   ),
                   controller: _passwordController,
                   validator: (value) {
@@ -174,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    fillColor: Color(0xff262626),
+                    fillColor: const Color(0xff262626),
                     filled: true,
                     hintText: 'Masukkan Password',
                     hintStyle: GoogleFonts.poppins(
@@ -198,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ForgetPassword1(),
+                            builder: (context) => const ForgetPassword1(),
                           ),
                         );
                       },
@@ -270,7 +267,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       child: Text('Daftar',
                           style: GoogleFonts.poppins(
-                            color: Color(0xffBC6FF1),
+                            color: const Color(0xffBC6FF1),
                             fontWeight: FontWeight.w500,
                             fontSize: 12,
                           )),

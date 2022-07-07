@@ -5,14 +5,14 @@ class GetUserByToken {
   GetUserByToken({this.meta, this.data});
 
   GetUserByToken.fromJson(Map<String, dynamic> json) {
-    meta = json['Meta'] != null ? new Meta.fromJson(json['Meta']) : null;
-    data = json['Data'] != null ? new Data.fromJson(json['Data']) : null;
+    meta = json['Meta'] != null ? Meta.fromJson(json['Meta']) : null;
+    data = json['Data'] != null ? Data.fromJson(json['Data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.meta != null) {
-      data['Meta'] = this.meta!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (meta != null) {
+      data['Meta'] = meta!.toJson();
     }
     if (this.data != null) {
       data['Data'] = this.data!.toJson();
@@ -33,9 +33,9 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['code'] = this.code;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['code'] = code;
     return data;
   }
 }
@@ -93,22 +93,22 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ID'] = this.iD;
-    data['email'] = this.email;
-    data['username'] = this.username;
-    data['name'] = this.name;
-    data['imageUrl'] = this.imageUrl;
-    data['profileImageURL'] = this.profileImageURL;
-    data['backgroundImageURL'] = this.backgroundImageURL;
-    data['bio'] = this.bio;
-    data['proffesion'] = this.proffesion;
-    data['role'] = this.role;
-    data['isBanned'] = this.isBanned;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['totalFollower'] = this.totalFollower;
-    data['totalFollowing'] = this.totalFollowing;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ID'] = iD;
+    data['email'] = email;
+    data['username'] = username;
+    data['name'] = name;
+    data['imageUrl'] = imageUrl;
+    data['profileImageURL'] = profileImageURL;
+    data['backgroundImageURL'] = backgroundImageURL;
+    data['bio'] = bio;
+    data['proffesion'] = proffesion;
+    data['role'] = role;
+    data['isBanned'] = isBanned;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['totalFollower'] = totalFollower;
+    data['totalFollowing'] = totalFollowing;
     return data;
   }
 }

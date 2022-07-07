@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/page/onbording/onbording_page_1.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnbordingPage2 extends StatelessWidget {

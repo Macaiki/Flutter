@@ -3,7 +3,7 @@ import 'package:flutter_macaiki/page/forget_password/forget_password3.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ForgetPassword2 extends StatefulWidget {
-  ForgetPassword2({Key? key}) : super(key: key);
+  const ForgetPassword2({Key? key}) : super(key: key);
 
   @override
   State<ForgetPassword2> createState() => _ForgetPassword2State();
@@ -14,7 +14,7 @@ class _ForgetPassword2State extends State<ForgetPassword2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff181818),
+      backgroundColor: const Color(0xff181818),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15),

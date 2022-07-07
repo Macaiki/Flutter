@@ -13,7 +13,7 @@ class _ForgetPasword3State extends State<ForgetPasword3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff181818),
+      backgroundColor: const Color(0xff181818),
       body: SafeArea(
           child: Center(
         child: Padding(
@@ -31,7 +31,7 @@ class _ForgetPasword3State extends State<ForgetPasword3> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32.1,
               ),
               Text(

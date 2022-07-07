@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/model/get_all_user_model.dart';
 import 'package:flutter_macaiki/page/search/search_community.dart';
 import 'package:flutter_macaiki/page/search/search_peopel.dart';
 import 'package:flutter_macaiki/page/search/widget/filter_widget.dart';
@@ -602,7 +601,7 @@ class _SearchResultState extends State<SearchResult> {
                           Text(
                             'Menguak lokasi asli dari desa tempat KKN DESA DANCE?!',
                             style: GoogleFonts.poppins(
-                              color: Color(0xffF6F5FC),
+                              color: const Color(0xffF6F5FC),
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),

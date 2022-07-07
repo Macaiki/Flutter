@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/model/auth_model.dart';
-import 'package:flutter_macaiki/model/login_model.dart';
 import 'package:flutter_macaiki/service/auth_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,7 +28,7 @@ class AuthProvider extends ChangeNotifier {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => LoginPage(),
+          builder: (context) => const LoginPage(),
         ),
       );
     }
@@ -50,7 +49,7 @@ class AuthProvider extends ChangeNotifier {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: ((context) => HomePage()),
+          builder: ((context) => const HomePage()),
         ),
       );
     }

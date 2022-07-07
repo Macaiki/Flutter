@@ -1,19 +1,15 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/model/auth_model.dart';
-import 'package:flutter_macaiki/model/get_user_by_token.dart';
 import 'package:flutter_macaiki/page/edit_profile/edit_profile.dart';
 import 'package:flutter_macaiki/page/followers/followers_page.dart';
-import 'package:flutter_macaiki/page/following/following_page.dart';
-import 'package:flutter_macaiki/provider/auth_provider.dart';
 import 'package:flutter_macaiki/provider/get_user_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePicture extends StatefulWidget {
-  ProfilePicture({Key? key}) : super(key: key);
+  const ProfilePicture({Key? key}) : super(key: key);
 
   @override
   State<ProfilePicture> createState() => _ProfilePictureState();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/model/get_thereads.dart';
 import 'package:flutter_macaiki/page/home/widget/community.dart';
 import 'package:flutter_macaiki/page/home/widget/for_you.dart';
 import 'package:flutter_macaiki/page/home/widget/trending.dart';
@@ -141,7 +140,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => WriteThreadPage(),
+                builder: (context) => const WriteThreadPage(),
               ),
             );
           },

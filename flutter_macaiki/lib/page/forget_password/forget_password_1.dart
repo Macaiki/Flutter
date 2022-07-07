@@ -3,7 +3,7 @@ import 'package:flutter_macaiki/page/forget_password/forget_password2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ForgetPassword1 extends StatefulWidget {
-  ForgetPassword1({Key? key}) : super(key: key);
+  const ForgetPassword1({Key? key}) : super(key: key);
 
   @override
   State<ForgetPassword1> createState() => _ForgetPassword1State();
@@ -14,7 +14,7 @@ class _ForgetPassword1State extends State<ForgetPassword1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff181818),
+      backgroundColor: const Color(0xff181818),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15),
@@ -104,7 +104,7 @@ class _ForgetPassword1State extends State<ForgetPassword1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: ((context) => ForgetPassword2()),
+                        builder: ((context) => const ForgetPassword2()),
                       ),
                     );
                   },

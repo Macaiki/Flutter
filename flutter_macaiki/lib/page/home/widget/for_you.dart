@@ -20,7 +20,7 @@ class ForYou extends StatelessWidget {
         top: 14,
       ),
       child: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -187,7 +187,7 @@ class ForYou extends StatelessWidget {
                         Text(
                           getThread.getThreads!.data![0].title!,
                           style: GoogleFonts.poppins(
-                            color: Color(0xffF6F5FC),
+                            color: const Color(0xffF6F5FC),
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
