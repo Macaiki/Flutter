@@ -136,8 +136,12 @@ class _WritePageState extends State<WriteThreadPage> {
               fit: FlexFit.tight,
               flex: 10,
               child: TextField(
+                maxLines: 5,
                 cursorColor: Color(0xff181818),
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                  ),
                   fillColor: Colors.white,
                   hintText: "Tulis sesuati atau tambah hastag",
                   hintStyle: GoogleFonts.poppins(

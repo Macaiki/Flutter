@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/comment/comment_page.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -212,8 +213,8 @@ class ForYou extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Image.network(
-                      getThread.getThreads!.data![0].imageURL!,
+                    Image.asset(
+                      'assets/images/image_thred.png',
                       fit: BoxFit.fitWidth,
                     ),
                     const SizedBox(
@@ -295,12 +296,22 @@ class ForYou extends StatelessWidget {
                         const SizedBox(
                           width: 6,
                         ),
-                        Text(
-                          'Comment',
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xffF6F7FC),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CommentPage(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Comment',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: const Color(0xffF6F7FC),
+                            ),
                           ),
                         ),
                         const SizedBox(

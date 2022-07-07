@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/notification/notification_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../home/home_page.dart';
@@ -69,10 +70,20 @@ class Navbar extends StatelessWidget {
               top: 13,
               bottom: 3.75,
             ),
-            child: Image.asset(
-              'assets/icons/Notification.png',
-              width: 22.5,
-              height: 23.11,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NotificationPage(),
+                  ),
+                );
+              },
+              child: Image.asset(
+                'assets/icons/Notification.png',
+                width: 22.5,
+                height: 23.11,
+              ),
             ),
           ),
           label: 'Notification',

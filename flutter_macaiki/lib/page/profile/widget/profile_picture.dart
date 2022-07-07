@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/model/auth_model.dart';
 import 'package:flutter_macaiki/model/get_user_by_token.dart';
 import 'package:flutter_macaiki/page/edit_profile/edit_profile.dart';
+import 'package:flutter_macaiki/page/followers/followers_page.dart';
+import 'package:flutter_macaiki/page/following/following_page.dart';
 import 'package:flutter_macaiki/provider/auth_provider.dart';
 import 'package:flutter_macaiki/provider/get_user_provider.dart';
 import 'package:image_picker/image_picker.dart';
@@ -160,27 +162,25 @@ class _ProfilePictureState extends State<ProfilePicture> {
               ),
             ],
           ),
-          if (getUserProvider.getUser != null)
-            Text(
-              getUserProvider.getUser!.data!.email!,
-              style: GoogleFonts.poppins(
-                color: const Color(0xffA5A5A5),
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
+          Text(
+            '@admin',
+            style: GoogleFonts.poppins(
+              color: const Color(0xffA5A5A5),
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
             ),
+          ),
           const SizedBox(
             height: 5,
           ),
-          if (getUserProvider.getUser != null)
-            Text(
-              getUserProvider.getUser!.data!.bio!,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
+          Text(
+            'Nothing',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
             ),
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -209,12 +209,22 @@ class _ProfilePictureState extends State<ProfilePicture> {
               ),
               Column(
                 children: [
-                  Text(
-                    'Followers',
-                    style: GoogleFonts.poppins(
-                      color: const Color(0xffF6F7FC),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const FollowersPage()),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Followers',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xffF6F7FC),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                   if (getUserProvider.getUser != null)
@@ -230,12 +240,22 @@ class _ProfilePictureState extends State<ProfilePicture> {
               ),
               Column(
                 children: [
-                  Text(
-                    'Following',
-                    style: GoogleFonts.poppins(
-                      color: const Color(0xffF6F7FC),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) => const FollowersPage()),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Following',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xffF6F7FC),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                   if (getUserProvider.getUser != null)

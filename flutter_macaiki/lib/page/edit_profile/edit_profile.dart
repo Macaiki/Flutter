@@ -3,8 +3,17 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
+
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  final nameController = TextEditingController();
+  final proffesionController = TextEditingController();
+  final bioController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +34,23 @@ class EditProfile extends StatelessWidget {
               top: 12,
               bottom: 17,
             ),
-            child: Container(
-              width: 74,
-              decoration: BoxDecoration(
-                color: const Color(0xffBC6FF1),
-                borderRadius: BorderRadius.circular(7),
-              ),
-              child: Center(
-                child: Text(
-                  'Save',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
+            child: InkWell(
+              onTap: () async{
+                
+              },
+              child: Container(
+                width: 74,
+                decoration: BoxDecoration(
+                  color: const Color(0xffBC6FF1),
+                  borderRadius: BorderRadius.circular(7),
+                ),
+                child: Center(
+                  child: Text(
+                    'Save',
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
@@ -147,6 +161,7 @@ class EditProfile extends StatelessWidget {
                 right: 15,
               ),
               child: TextFormField(
+                controller: nameController,
                 style: GoogleFonts.poppins(
                   color: const Color(0xffF6F7FC),
                 ),
@@ -156,7 +171,7 @@ class EditProfile extends StatelessWidget {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color(0xffF6F7FC),
+                      color: Color(0xffBC6FF1),
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -199,6 +214,7 @@ class EditProfile extends StatelessWidget {
                 right: 15,
               ),
               child: TextFormField(
+                controller: proffesionController,
                 style: GoogleFonts.poppins(
                   color: const Color(0xffF6F7FC),
                 ),
@@ -208,7 +224,7 @@ class EditProfile extends StatelessWidget {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color(0xffF6F7FC),
+                      color: Color(0xffBC6FF1),
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -251,6 +267,7 @@ class EditProfile extends StatelessWidget {
                 right: 15,
               ),
               child: TextFormField(
+                controller: bioController,
                 maxLines: 5,
                 style: GoogleFonts.poppins(
                   color: const Color(0xffF6F7FC),
@@ -261,7 +278,7 @@ class EditProfile extends StatelessWidget {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                      color: Color(0xffF6F7FC),
+                      color: Color(0xffBC6FF1),
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),

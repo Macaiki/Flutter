@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/home/home_page.dart';
 import 'package:flutter_macaiki/page/login/login_page.dart';
 import 'package:flutter_macaiki/provider/auth_provider.dart';
+import 'package:flutter_macaiki/provider/get_all_user_provider.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
 import 'package:flutter_macaiki/provider/get_user_provider.dart';
 import 'package:provider/provider.dart';
@@ -26,13 +28,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: ((context) => GetThreadsProvider()),
         ),
+        ChangeNotifierProvider(
+          create: ((context) => GetAllUserProvider()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: const Color(0x00181818),
         ),
-        home: const LoginPage(),
+        home: LoginPage(),
       ),
     );
   }

@@ -5,5 +5,5 @@ class Endpoint {
 
 class Endpoint1 {
   static const String url =
-      'https://virtserver.swaggerhub.com/restuarachman/Macaiki/1.0.0/api/v1';
+      'https://virtserver.swaggerhub.com/restuarachman/Macaiki/1.0.0';
 }

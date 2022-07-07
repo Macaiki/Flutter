@@ -3,7 +3,11 @@ import 'package:flutter_macaiki/model/get_thereads.dart';
 import 'package:flutter_macaiki/page/home/widget/community.dart';
 import 'package:flutter_macaiki/page/home/widget/for_you.dart';
 import 'package:flutter_macaiki/page/home/widget/trending.dart';
+import 'package:flutter_macaiki/page/home/writethread_page.dart';
+import 'package:flutter_macaiki/page/notification/notification_page.dart';
 import 'package:flutter_macaiki/page/profile/profile_page.dart';
+import 'package:flutter_macaiki/page/search/search_page.dart';
+import 'package:flutter_macaiki/page/trending/trending_page.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +60,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.only(right: 20.0),
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchPage(),
+                          ),
+                        );
+                      },
                       child: const Icon(
                         Icons.search,
                         size: 26.0,
@@ -117,7 +128,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               getThread.getThreads != null
                   ? const ForYou()
                   : const Center(
-                      child: const CircularProgressIndicator(),
+                      child: CircularProgressIndicator(),
                     ),
               const Trending(),
               const Community(),
@@ -126,7 +137,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xffBC6FF1),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WriteThreadPage(),
+              ),
+            );
+          },
           child: Image.asset(
             'assets/icons/Write.png',
             width: 35,
@@ -170,10 +188,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   top: 13,
                   bottom: 3.75,
                 ),
-                child: Image.asset(
-                  'assets/icons/Community.png',
-                  width: 22.5,
-                  height: 23.11,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TrendingPage(),
+                      ),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/icons/Community.png',
+                    width: 22.5,
+                    height: 23.11,
+                  ),
                 ),
               ),
               label: 'Trending',
@@ -184,10 +212,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   top: 13,
                   bottom: 3.75,
                 ),
-                child: Image.asset(
-                  'assets/icons/Notification.png',
-                  width: 22.5,
-                  height: 23.11,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NotificationPage()),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/icons/Notification.png',
+                    width: 22.5,
+                    height: 23.11,
+                  ),
                 ),
               ),
               label: 'Notification',

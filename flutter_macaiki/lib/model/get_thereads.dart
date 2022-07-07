@@ -49,31 +49,46 @@ class Data {
   int? iD;
   String? title;
   String? body;
-  int? topicID;
+  int? communityID;
   String? imageURL;
   int? userID;
+  String? userName;
+  String? userProfession;
+  String? userProfilePictureURL;
   String? createdAt;
   String? updatedAt;
+  int? likesCount;
+  int? isLiked;
 
   Data(
       {this.iD,
       this.title,
       this.body,
-      this.topicID,
+      this.communityID,
       this.imageURL,
       this.userID,
+      this.userName,
+      this.userProfession,
+      this.userProfilePictureURL,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.likesCount,
+      this.isLiked});
 
   Data.fromJson(Map<String, dynamic> json) {
     iD = json['ID'];
     title = json['title'];
     body = json['body'];
-    topicID = json['topicID'];
+    communityID = json['communityID'];
     imageURL = json['imageURL'];
     userID = json['userID'];
+    userName = json['userName'];
+    userProfession = json['userProfession'];
+    userProfilePictureURL = json['userProfilePictureURL'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
+    likesCount = json['likesCount'];
+    isLiked = json['isLiked'];
   }
 
   Map<String, dynamic> toJson() {
@@ -81,11 +96,16 @@ class Data {
     data['ID'] = this.iD;
     data['title'] = this.title;
     data['body'] = this.body;
-    data['topicID'] = this.topicID;
+    data['communityID'] = this.communityID;
     data['imageURL'] = this.imageURL;
     data['userID'] = this.userID;
+    data['userName'] = this.userName;
+    data['userProfession'] = this.userProfession;
+    data['userProfilePictureURL'] = this.userProfilePictureURL;
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
+    data['likesCount'] = this.likesCount;
+    data['isLiked'] = this.isLiked;
     return data;
   }
 }

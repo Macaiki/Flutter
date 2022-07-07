@@ -11,7 +11,7 @@ class GetUserService {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       print(await sharedPreferences.getString("token"));
-      final response = await Dio().get('${Endpoint1.url}/my-profile',
+      final response = await Dio().get('${Endpoint1.url}/curent-user/profile',
           options: Options(
             headers: {
               "Authorization": "Bearer ${sharedPreferences.getString('token')}"

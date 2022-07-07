@@ -21,12 +21,12 @@ class _OnbordingPageState extends State<OnbordingPage> {
           PageView(
             controller: _controller,
             children: [
-              OnbordingPage1(),
               OnbordingPage2(),
+              OnbordingPage1(),
             ],
           ),
           Container(
-            alignment: Alignment(0, 0.5),
+            alignment: const Alignment(0, 0.7),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

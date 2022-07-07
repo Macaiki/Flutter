@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   style: GoogleFonts.poppins(
-                    color: Color(0xffF6F7FC),
+                    color: const Color(0xffF6F7FC),
                   ),
                   controller: _emailController,
                   // validator: (email) {
