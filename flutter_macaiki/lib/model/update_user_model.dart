@@ -5,14 +5,14 @@ class UpdateUserModel {
   UpdateUserModel({this.meta, this.data});
 
   UpdateUserModel.fromJson(Map<String, dynamic> json) {
-    meta = json['Meta'] != null ? Meta.fromJson(json['Meta']) : null;
-    data = json['Data'] != null ? Data.fromJson(json['Data']) : null;
+    meta = json['Meta'] != null ? new Meta.fromJson(json['Meta']) : null;
+    data = json['Data'] != null ? new Data.fromJson(json['Data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (meta != null) {
-      data['Meta'] = meta!.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.meta != null) {
+      data['Meta'] = this.meta!.toJson();
     }
     if (this.data != null) {
       data['Data'] = this.data!.toJson();
@@ -33,74 +33,31 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
-    data['code'] = code;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    data['code'] = this.code;
     return data;
   }
 }
 
 class Data {
-  int? iD;
-  String? email;
-  String? username;
   String? name;
-  String? imageUrl;
-  String? profileImageURL;
-  String? backgroundImageURL;
   String? bio;
-  String? proffesion;
-  String? role;
-  bool? isBanned;
-  String? createdAt;
-  String? updatedAt;
+  String? profession;
 
-  Data(
-      {this.iD,
-      this.email,
-      this.username,
-      this.name,
-      this.imageUrl,
-      this.profileImageURL,
-      this.backgroundImageURL,
-      this.bio,
-      this.proffesion,
-      this.role,
-      this.isBanned,
-      this.createdAt,
-      this.updatedAt});
+  Data({this.name, this.bio, this.profession});
 
   Data.fromJson(Map<String, dynamic> json) {
-    iD = json['ID'];
-    email = json['email'];
-    username = json['username'];
     name = json['name'];
-    imageUrl = json['imageUrl'];
-    profileImageURL = json['profileImageURL'];
-    backgroundImageURL = json['backgroundImageURL'];
     bio = json['bio'];
-    proffesion = json['proffesion'];
-    role = json['role'];
-    isBanned = json['isBanned'];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
+    profession = json['profession'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['ID'] = iD;
-    data['email'] = email;
-    data['username'] = username;
-    data['name'] = name;
-    data['imageUrl'] = imageUrl;
-    data['profileImageURL'] = profileImageURL;
-    data['backgroundImageURL'] = backgroundImageURL;
-    data['bio'] = bio;
-    data['proffesion'] = proffesion;
-    data['role'] = role;
-    data['isBanned'] = isBanned;
-    data['createdAt'] = createdAt;
-    data['updatedAt'] = updatedAt;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['bio'] = this.bio;
+    data['profession'] = this.profession;
     return data;
   }
 }

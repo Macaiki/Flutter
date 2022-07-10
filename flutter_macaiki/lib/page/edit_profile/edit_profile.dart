@@ -1,7 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/provider/update_user_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final updateUser = Provider.of<UpdateUserProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff181818),
@@ -35,8 +38,13 @@ class _EditProfileState extends State<EditProfile> {
               bottom: 17,
             ),
             child: InkWell(
-              onTap: () async{
-                
+              onTap: () {
+                updateUser.update(
+                  nameController.text,
+                  bioController.text,
+                  proffesionController.text,
+                  context,
+                );
               },
               child: Container(
                 width: 74,
@@ -84,15 +92,18 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 const Padding(
                   padding: EdgeInsets.only(
-                    top: 55.88,
-                    left: 171.75,
+                    top: 10,
+                    right: 15,
                   ),
-                  child: CircleAvatar(
-                    radius: 20,
-                    backgroundImage: AssetImage(
-                      'assets/icons/Write.png',
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: CircleAvatar(
+                      radius: 15,
+                      backgroundImage: AssetImage(
+                        'assets/icons/Write.png',
+                      ),
+                      backgroundColor: Color(0xffBC6FF1),
                     ),
-                    backgroundColor: Color(0xffBC6FF1),
                   ),
                 ),
               ],
@@ -116,11 +127,11 @@ class _EditProfileState extends State<EditProfile> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                              top: 21,
-                              left: 25,
+                              top: 50,
+                              left: 60,
                             ),
                             child: CircleAvatar(
-                              radius: 18,
+                              radius: 15,
                               backgroundImage: AssetImage(
                                 'assets/icons/Write.png',
                               ),

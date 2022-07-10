@@ -45,26 +45,6 @@ Widget yourPost(BuildContext context) {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Image.asset(
-                                  'assets/icons/dot.png',
-                                  width: 4,
-                                  height: 18,
-                                  color: const Color(0xffF6F7FC),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Text(
-                                  'Follow',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.blue,
-                                  ),
-                                ),
                               ],
                             ),
                             Row(

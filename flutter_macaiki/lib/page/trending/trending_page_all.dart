@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/detail_community/detail_community.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TrendingPageAll extends StatelessWidget {
+class TrendingPageAll extends StatefulWidget {
   const TrendingPageAll({Key? key}) : super(key: key);
 
   @override
+  State<TrendingPageAll> createState() => _TrendingPageAllState();
+}
+
+class _TrendingPageAllState extends State<TrendingPageAll> {
+  @override
   Widget build(BuildContext context) {
+    bool isButtonPressed = false;
     return Scaffold(
       backgroundColor: const Color(0xff181818),
       body: Column(
@@ -115,23 +121,49 @@ class TrendingPageAll extends StatelessWidget {
                             const SizedBox(
                               height: 14,
                             ),
-                            Container(
-                              height: 30,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: const Color(0xfFBC6FF1),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Follow',
-                                  style: GoogleFonts.poppins(
-                                    color: const Color(0xffF6F7FC),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  isButtonPressed = !isButtonPressed;
+                                });
+                              },
+                              child: isButtonPressed
+                                  ? Container(
+                                      height: 30,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xfFA5A5A5),
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Following',
+                                          style: GoogleFonts.poppins(
+                                            color: const Color(0xffF6F7FC),
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  : Container(
+                                      height: 30,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xfFBC6FF1),
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Follow',
+                                          style: GoogleFonts.poppins(
+                                            color: const Color(0xffF6F7FC),
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                             ),
                           ],
                         ),

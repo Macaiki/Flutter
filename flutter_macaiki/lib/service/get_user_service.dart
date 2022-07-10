@@ -10,12 +10,14 @@ class GetUserService {
     try {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
-      final response = await Dio().get('${Endpoint1.url}/curent-user/profile',
-          options: Options(
-            headers: {
-              "Authorization": "Bearer ${sharedPreferences.getString('token')}"
-            },
-          ));
+      final response = await Dio().get(
+        '${Endpoint1.url}/curent-user/profile',
+        options: Options(
+          headers: {
+            "Authorization": "Bearer ${sharedPreferences.getString('token')}"
+          },
+        ),
+      );
       print('sukses');
       print(response.data.toString());
       return GetUserByToken.fromJson(

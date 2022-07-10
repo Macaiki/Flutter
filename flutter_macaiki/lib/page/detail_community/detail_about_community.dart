@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/page/detail_community/detail_about_community.dart';
+import 'package:flutter_macaiki/page/detail_community/widget/about.dart';
 import 'package:flutter_macaiki/page/detail_community/widget/cover_image.dart';
-import 'package:flutter_macaiki/page/detail_community/widget/threads.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailCommunity extends StatefulWidget {
-  const DetailCommunity({Key? key}) : super(key: key);
+class DetailAboutCommunity extends StatelessWidget {
+  const DetailAboutCommunity({Key? key}) : super(key: key);
 
-  @override
-  State<DetailCommunity> createState() => _DetailCommunityState();
-}
-
-class _DetailCommunityState extends State<DetailCommunity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,21 +84,11 @@ class _DetailCommunityState extends State<DetailCommunity> {
                           const Expanded(
                             child: SizedBox(),
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const DetailAboutCommunity(),
-                                  ),
-                                  (route) => false);
-                            },
-                            child: Image.asset(
-                              'assets/icons/Info.png',
-                              width: 24,
-                              height: 24,
-                            ),
+                          Image.asset(
+                            'assets/icons/Info.png',
+                            width: 24,
+                            height: 24,
+                            color: const Color(0xffC787F3),
                           ),
                         ],
                       ),
@@ -114,10 +98,7 @@ class _DetailCommunityState extends State<DetailCommunity> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 6,
-          ),
-          threads(context),
+          about(context),
         ],
       ),
     );

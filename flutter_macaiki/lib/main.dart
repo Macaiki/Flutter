@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_macaiki/page/home/home_page.dart';
-import 'package:flutter_macaiki/page/login/login_page.dart';
+import 'package:flutter_macaiki/page/onbording/onbording_page.dart';
 import 'package:flutter_macaiki/provider/auth_provider.dart';
 import 'package:flutter_macaiki/provider/get_all_user_provider.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
 import 'package:flutter_macaiki/provider/get_user_provider.dart';
+import 'package:flutter_macaiki/provider/update_user_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -31,13 +31,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: ((context) => GetAllUserProvider()),
         ),
+        ChangeNotifierProvider(
+          create: ((context) => UpdateUserProvider()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: const Color(0x00181818),
         ),
-        home: LoginPage(),
+        home: const OnbordingPage(),
       ),
     );
   }

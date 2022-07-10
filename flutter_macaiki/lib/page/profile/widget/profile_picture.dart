@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/edit_profile/edit_profile.dart';
 import 'package:flutter_macaiki/page/followers/followers_page.dart';
 import 'package:flutter_macaiki/provider/get_user_provider.dart';
+import 'package:flutter_macaiki/provider/update_user_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
   @override
   Widget build(BuildContext context) {
     final getUserProvider = Provider.of<GetUserProvider>(context);
+    final updateUser = Provider.of<UpdateUserProvider>(context);
     return Container(
       transform: Matrix4.translationValues(0.0, -40.0, 0.0),
       padding: const EdgeInsets.symmetric(
@@ -136,20 +138,24 @@ class _ProfilePictureState extends State<ProfilePicture> {
           ),
           Row(
             children: [
-              if (getUserProvider.getUser != null)
-                Text(
-                  getUserProvider.getUser!.data!.username!,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
+              // if (getUserProvider.getUser != null)
+              Text(
+                (updateUser.updateUserModel != null)
+                    ? updateUser.updateUserModel!.data!.name!
+                    : getUserProvider.getUser!.data!.name!,
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 ),
+              ),
               const SizedBox(
                 width: 7,
               ),
               Text(
-                'Musisi',
+                (updateUser.updateUserModel != null)
+                    ? updateUser.updateUserModel!.data!.profession!
+                    : 'Musisi',
                 style: GoogleFonts.poppins(
                   color: const Color(0xffA5A5A5),
                   fontSize: 12,
@@ -170,7 +176,9 @@ class _ProfilePictureState extends State<ProfilePicture> {
             height: 5,
           ),
           Text(
-            'Nothing',
+            (updateUser.updateUserModel != null)
+                ? updateUser.updateUserModel!.data!.bio!
+                : 'Nothing',
             style: GoogleFonts.poppins(
               color: Colors.white,
               fontSize: 14,
