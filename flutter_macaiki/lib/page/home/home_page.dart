@@ -148,7 +148,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ).then(
               (value) => {
                 Provider.of<GetThreadsProvider>(context).getAllThreads(),
-                print('test'),
               },
             );
           },

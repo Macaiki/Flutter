@@ -5,14 +5,14 @@ class UpdateUserModel {
   UpdateUserModel({this.meta, this.data});
 
   UpdateUserModel.fromJson(Map<String, dynamic> json) {
-    meta = json['Meta'] != null ? new Meta.fromJson(json['Meta']) : null;
-    data = json['Data'] != null ? new Data.fromJson(json['Data']) : null;
+    meta = json['Meta'] != null ? Meta.fromJson(json['Meta']) : null;
+    data = json['Data'] != null ? Data.fromJson(json['Data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.meta != null) {
-      data['Meta'] = this.meta!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (meta != null) {
+      data['Meta'] = meta!.toJson();
     }
     if (this.data != null) {
       data['Data'] = this.data!.toJson();
@@ -33,9 +33,9 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    data['code'] = this.code;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    data['code'] = code;
     return data;
   }
 }
@@ -54,10 +54,10 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['bio'] = this.bio;
-    data['profession'] = this.profession;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['bio'] = bio;
+    data['profession'] = profession;
     return data;
   }
 }

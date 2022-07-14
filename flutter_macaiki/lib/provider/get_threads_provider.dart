@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/model/get_thereads.dart';
 import 'package:flutter_macaiki/service/get_thereads_service.dart';

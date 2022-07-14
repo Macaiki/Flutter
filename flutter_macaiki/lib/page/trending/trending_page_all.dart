@@ -126,7 +126,6 @@ class _TrendingPageAllState extends State<TrendingPageAll> {
                                   setState(() {
                                     isButtonPressed = !isButtonPressed;
                                   });
-                                  print(isButtonPressed);
                                 },
                                 child: isButtonPressed
                                     ? Container(

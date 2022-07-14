@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dio/dio.dart';
 import 'package:flutter_macaiki/model/get_thereads.dart';
 import 'package:flutter_macaiki/utill/endpoint.dart';

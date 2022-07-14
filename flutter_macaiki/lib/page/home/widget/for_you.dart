@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/comment/comment_page.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
-import 'package:flutter_macaiki/provider/up_vote_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
@@ -20,7 +19,7 @@ class _ForYouState extends State<ForYou> {
     final getThread = Provider.of<GetThreadsProvider>(
       context,
     );
-    final upVote = Provider.of<UpVoteProvider>(context);
+    // final upVote = Provider.of<UpVoteProvider>(context);
     return ListView.builder(
       itemCount: getThread.getThreads!.data!.length,
       itemBuilder: (BuildContext context, index) {
@@ -91,7 +90,6 @@ class _ForYouState extends State<ForYou> {
                                         setState(() {
                                           isPressed = !isPressed;
                                         });
-                                        print(isPressed);
                                       },
                                       child: isPressed
                                           ? Text(

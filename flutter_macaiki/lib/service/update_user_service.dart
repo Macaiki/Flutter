@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:dio/dio.dart';
 import 'package:flutter_macaiki/model/update_user_model.dart';
 import 'package:flutter_macaiki/utill/endpoint.dart';

@@ -71,10 +71,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     const SizedBox(
                       height: 9,
                     ),
-                    YourPost()
+                    const YourPost()
                   ],
                 ),
-              ))
+              ),),
         ],
       ),
       bottomNavigationBar: const Navbar(),

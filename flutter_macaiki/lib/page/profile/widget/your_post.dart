@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
 class YourPost extends StatefulWidget {
-  YourPost({Key? key}) : super(key: key);
+  const YourPost({Key? key}) : super(key: key);
 
   @override
   State<YourPost> createState() => _YourPostState();
