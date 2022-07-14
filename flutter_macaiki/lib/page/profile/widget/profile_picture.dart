@@ -138,17 +138,17 @@ class _ProfilePictureState extends State<ProfilePicture> {
           ),
           Row(
             children: [
-              // if (getUserProvider.getUser != null)
-              Text(
-                (updateUser.updateUserModel != null)
-                    ? updateUser.updateUserModel!.data!.name!
-                    : getUserProvider.getUser!.data!.name!,
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+              if (getUserProvider.getUser != null)
+                Text(
+                  (updateUser.updateUserModel != null)
+                      ? updateUser.updateUserModel!.data!.name!
+                      : getUserProvider.getUser!.data!.name!,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
               const SizedBox(
                 width: 7,
               ),

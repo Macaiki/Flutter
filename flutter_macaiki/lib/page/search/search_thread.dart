@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/search/search_community.dart';
 import 'package:flutter_macaiki/page/search/search_peopel.dart';
 import 'package:flutter_macaiki/page/search/search_result.dart';
 import 'package:flutter_macaiki/page/search/widget/search_widget_result.dart';
@@ -104,22 +105,32 @@ class SearchThread extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  Container(
-                    width: 110,
-                    decoration: BoxDecoration(
-                      color: const Color(0xff181818),
-                      borderRadius: BorderRadius.circular(5),
-                      border: Border.all(
-                        color: const Color(0xffBC6FF1),
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Community',
-                        style: GoogleFonts.poppins(
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SearchCommunity(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 110,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff181818),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
                           color: const Color(0xffBC6FF1),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Community',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xffBC6FF1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
@@ -127,19 +138,29 @@ class SearchThread extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  Container(
-                    width: 80,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffBC6FF1),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Thread',
-                        style: GoogleFonts.poppins(
-                          color: const Color(0xffF6F7FC),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SearchResult(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 80,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffBC6FF1),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Thread',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xffF6F7FC),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),

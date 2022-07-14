@@ -8,6 +8,7 @@ class GetThreadsProvider extends ChangeNotifier {
 
   Future<GetThreads?> getAllThreads() async {
     getThreads = await getThereadService.getThereades();
+    print(getThreads!.data!.length);
     notifyListeners();
     return getThreads;
   }

@@ -14,7 +14,7 @@ Widget about(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Threads',
+              'About',
               style: GoogleFonts.poppins(
                 color: const Color(0xffBC6FF1),
                 fontSize: 14,

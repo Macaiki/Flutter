@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/search/search_community.dart';
 import 'package:flutter_macaiki/page/search/search_peopel.dart';
+import 'package:flutter_macaiki/page/search/search_thread.dart';
 import 'package:flutter_macaiki/page/search/widget/filter_widget.dart';
 import 'package:flutter_macaiki/page/search/widget/search_widget_result.dart';
 import 'package:flutter_macaiki/provider/get_all_user_provider.dart';
@@ -16,6 +17,8 @@ class SearchResult extends StatefulWidget {
 }
 
 class _SearchResultState extends State<SearchResult> {
+  bool isPressed = false;
+  bool isPressed1 = false;
   @override
   void initState() {
     WidgetsBinding.instance!.addPostFrameCallback(
@@ -91,7 +94,14 @@ class _SearchResultState extends State<SearchResult> {
                       width: 10,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchThread(),
+                          ),
+                        );
+                      },
                       child: filterWidget('Thread'),
                     ),
                   ],
@@ -332,23 +342,53 @@ class _SearchResultState extends State<SearchResult> {
                                   const SizedBox(
                                     height: 14,
                                   ),
-                                  Container(
-                                    height: 30,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xfFBC6FF1),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Follow',
-                                        style: GoogleFonts.poppins(
-                                          color: const Color(0xffF6F7FC),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isPressed = !isPressed;
+                                      });
+                                    },
+                                    child: isPressed
+                                        ? Container(
+                                            height: 30,
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xfFA5A5A5),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                'Following',
+                                                style: GoogleFonts.poppins(
+                                                  color:
+                                                      const Color(0xffF6F7FC),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Container(
+                                            height: 30,
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xfFBC6FF1),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                'Follow',
+                                                style: GoogleFonts.poppins(
+                                                  color:
+                                                      const Color(0xffF6F7FC),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                   ),
                                 ],
                               ),
@@ -414,23 +454,53 @@ class _SearchResultState extends State<SearchResult> {
                                   const SizedBox(
                                     height: 14,
                                   ),
-                                  Container(
-                                    height: 30,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xfFBC6FF1),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Follow',
-                                        style: GoogleFonts.poppins(
-                                          color: const Color(0xffF6F7FC),
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isPressed1 = !isPressed1;
+                                      });
+                                    },
+                                    child: isPressed1
+                                        ? Container(
+                                            height: 30,
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xfFA5A5A5),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                'Following',
+                                                style: GoogleFonts.poppins(
+                                                  color:
+                                                      const Color(0xffF6F7FC),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Container(
+                                            height: 30,
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xfFBC6FF1),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                'Follow',
+                                                style: GoogleFonts.poppins(
+                                                  color:
+                                                      const Color(0xffF6F7FC),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                   ),
                                 ],
                               ),
@@ -467,134 +537,141 @@ class _SearchResultState extends State<SearchResult> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Row(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Billie Geulish',
-                                        style: GoogleFonts.poppins(
-                                          color: const Color(0xffF6F7FC),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Musisi',
-                                        style: GoogleFonts.poppins(
-                                          color: const Color(0xffA5A5A5),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Image.asset(
-                                        'assets/icons/dot.png',
-                                        width: 4,
-                                        height: 18,
-                                        color: const Color(0xffF6F7FC),
-                                      ),
-                                      Image.asset(
-                                        'assets/icons/dot.png',
-                                        width: 4,
-                                        height: 18,
-                                        color: const Color(0xffA5A5A5),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        'Follow',
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.blue,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 2.5,
-                                      ),
-                                      Text(
-                                        '2 days ago',
-                                        style: GoogleFonts.poppins(
-                                          color: const Color(0xffA5A5A5),
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 116,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      showModalBottomSheet(
-                                        backgroundColor:
-                                            const Color(0xff181818),
-                                        context: context,
-                                        builder: (context) {
-                                          return Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              ListTile(
-                                                leading: Image.asset(
-                                                  'assets/icons/Megaphone.png',
-                                                  width: 32,
-                                                  height: 32,
-                                                ),
-                                                title: Text(
-                                                  'Laporkan',
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
-                                                    color:
-                                                        const Color(0xffF52936),
-                                                  ),
-                                                ),
-                                                onTap: () {},
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Billie Geulish',
+                                              style: GoogleFonts.poppins(
+                                                color: const Color(0xffF6F7FC),
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w500,
                                               ),
-                                              ListTile(
-                                                leading: Image.asset(
-                                                  'assets/icons/Flag.png',
-                                                  width: 32,
-                                                  height: 32,
-                                                ),
-                                                title: Text(
-                                                  'Blokir Thread',
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.w500,
-                                                    color:
-                                                        const Color(0xffF6F7FC),
-                                                  ),
-                                                ),
-                                                onTap: () {},
-                                              )
-                                            ],
-                                          );
-                                        },
-                                      );
-                                    },
-                                    child: Image.asset(
-                                      'assets/icons/Option_Button.png',
-                                      height: 20,
-                                      width: 20,
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Image.asset(
+                                              'assets/icons/dot.png',
+                                              width: 4,
+                                              height: 18,
+                                              color: const Color(0xffF6F7FC),
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              'Follow',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.blue,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Musisi',
+                                              style: GoogleFonts.poppins(
+                                                color: const Color(0xffA5A5A5),
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Image.asset(
+                                              'assets/icons/dot.png',
+                                              width: 4,
+                                              height: 18,
+                                              color: const Color(0xffA5A5A5),
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              '2 days ago',
+                                              style: GoogleFonts.poppins(
+                                                color: const Color(0xffA5A5A5),
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
+                                    const Expanded(
+                                      child: SizedBox(),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        showModalBottomSheet(
+                                          backgroundColor:
+                                              const Color(0xff181818),
+                                          context: context,
+                                          builder: (context) {
+                                            return Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                ListTile(
+                                                  leading: Image.asset(
+                                                    'assets/icons/Megaphone.png',
+                                                    width: 32,
+                                                    height: 32,
+                                                  ),
+                                                  title: Text(
+                                                    'Laporkan',
+                                                    style: GoogleFonts.poppins(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: const Color(
+                                                          0xffF52936),
+                                                    ),
+                                                  ),
+                                                  onTap: () {},
+                                                ),
+                                                ListTile(
+                                                  leading: Image.asset(
+                                                    'assets/icons/Flag.png',
+                                                    width: 32,
+                                                    height: 32,
+                                                  ),
+                                                  title: Text(
+                                                    'Blokir Thread',
+                                                    style: GoogleFonts.poppins(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: const Color(
+                                                          0xffF6F7FC),
+                                                    ),
+                                                  ),
+                                                  onTap: () {},
+                                                )
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      child: Image.asset(
+                                        'assets/icons/Option_Button.png',
+                                        height: 20,
+                                        width: 20,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -773,6 +850,9 @@ class _SearchResultState extends State<SearchResult> {
                                 ),
                               ),
                             ],
+                          ),
+                          const SizedBox(
+                            height: 10,
                           ),
                         ],
                       ),

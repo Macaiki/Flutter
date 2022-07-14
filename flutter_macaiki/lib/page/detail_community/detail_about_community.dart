@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/detail_community/detail_community.dart';
 import 'package:flutter_macaiki/page/detail_community/widget/about.dart';
 import 'package:flutter_macaiki/page/detail_community/widget/cover_image.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailAboutCommunity extends StatelessWidget {
+class DetailAboutCommunity extends StatefulWidget {
   const DetailAboutCommunity({Key? key}) : super(key: key);
 
+  @override
+  State<DetailAboutCommunity> createState() => _DetailAboutCommunityState();
+}
+
+class _DetailAboutCommunityState extends State<DetailAboutCommunity> {
+  bool isPressed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,23 +47,49 @@ class DetailAboutCommunity extends StatelessWidget {
                             backgroundImage:
                                 AssetImage('assets/images/Ellipse5.png'),
                           ),
-                          Container(
-                            width: 99,
-                            height: 32,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffBC6FF1),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Follow',
-                                style: GoogleFonts.poppins(
-                                  color: const Color(0xffF7F6FC),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                isPressed = !isPressed;
+                              });
+                            },
+                            child: isPressed
+                                ? Container(
+                                    width: 99,
+                                    height: 32,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xffA5A5A5),
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Following',
+                                        style: GoogleFonts.poppins(
+                                          color: const Color(0xffF7F6FC),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    width: 99,
+                                    height: 32,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xffBC6FF1),
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Follow',
+                                        style: GoogleFonts.poppins(
+                                          color: const Color(0xffF7F6FC),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                           ),
                         ],
                       ),
@@ -84,11 +117,21 @@ class DetailAboutCommunity extends StatelessWidget {
                           const Expanded(
                             child: SizedBox(),
                           ),
-                          Image.asset(
-                            'assets/icons/Info.png',
-                            width: 24,
-                            height: 24,
-                            color: const Color(0xffC787F3),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailCommunity(),
+                                ),
+                              );
+                            },
+                            child: Image.asset(
+                              'assets/icons/Info.png',
+                              width: 24,
+                              height: 24,
+                              color: const Color(0xffC787F3),
+                            ),
                           ),
                         ],
                       ),

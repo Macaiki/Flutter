@@ -325,6 +325,7 @@ class _SignupPageState extends State<SignupPage> {
                 //Bottom Sign Up
                 InkWell(
                   onTap: () {
+                    _onLoading();
                     userProvider.register(
                       _usernameController.text,
                       _emailController.text,
@@ -394,6 +395,22 @@ class _SignupPageState extends State<SignupPage> {
           )),
         ),
       ),
+    );
+  }
+
+  void _onLoading() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Container(
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator(
+            backgroundColor: Colors.grey,
+            color: Color(0xffBC6FF1),
+          ),
+        );
+      },
     );
   }
 }

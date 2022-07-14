@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget coverImage(BuildContext context) {
   return Stack(
@@ -19,10 +20,73 @@ Widget coverImage(BuildContext context) {
         ),
         child: Align(
           alignment: Alignment.topRight,
-          child: Image.asset(
-            'assets/icons/option.png',
-            width: 24,
-            height: 24,
+          child: InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                backgroundColor: const Color(0xff181818),
+                context: context,
+                builder: (context) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ListTile(
+                        leading: Image.asset(
+                          'assets/icons/share.png',
+                          width: 25,
+                          height: 25,
+                        ),
+                        title: Text(
+                          'Share Community',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xffF6F7FC),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                      ListTile(
+                        leading: Image.asset(
+                          'assets/icons/Megaphone.png',
+                          width: 32,
+                          height: 32,
+                        ),
+                        title: Text(
+                          'Laporkan',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xffF52936),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                      ListTile(
+                        leading: Image.asset(
+                          'assets/icons/Flag.png',
+                          width: 32,
+                          height: 32,
+                        ),
+                        title: Text(
+                          'Blokir',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xffF6F7FC),
+                          ),
+                        ),
+                        onTap: () {},
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: Image.asset(
+              'assets/icons/option.png',
+              width: 24,
+              height: 24,
+            ),
           ),
         ),
       ),

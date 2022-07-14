@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/comment/comment_page.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
+import 'package:flutter_macaiki/provider/up_vote_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
-class ForYou extends StatelessWidget {
+class ForYou extends StatefulWidget {
   const ForYou({Key? key}) : super(key: key);
 
+  @override
+  State<ForYou> createState() => _ForYouState();
+}
+
+class _ForYouState extends State<ForYou> {
+  bool isPressed = false;
   @override
   Widget build(BuildContext context) {
     final getThread = Provider.of<GetThreadsProvider>(
       context,
     );
+    final upVote = Provider.of<UpVoteProvider>(context);
     return ListView.builder(
       itemCount: getThread.getThreads!.data!.length,
       itemBuilder: (BuildContext context, index) {
@@ -78,13 +86,30 @@ class ForYou extends StatelessWidget {
                                     const SizedBox(
                                       width: 4,
                                     ),
-                                    Text(
-                                      'Follow',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.blue,
-                                      ),
+                                    InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          isPressed = !isPressed;
+                                        });
+                                        print(isPressed);
+                                      },
+                                      child: isPressed
+                                          ? Text(
+                                              'Following',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: const Color(0xffA5A5A5),
+                                              ),
+                                            )
+                                          : Text(
+                                              'Follow',
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.blue,
+                                              ),
+                                            ),
                                     ),
                                   ],
                                 ),
@@ -165,7 +190,7 @@ class ForYou extends StatelessWidget {
                                             ),
                                           ),
                                           onTap: () {},
-                                        )
+                                        ),
                                       ],
                                     );
                                   },
@@ -245,11 +270,19 @@ class ForYou extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-                              Image.asset(
-                                'assets/icons/arrow-up.png',
-                                width: 13,
-                                height: 13,
-                                color: Colors.white,
+                              InkWell(
+                                onTap: () {
+                                  // upVote.upVote(
+                                  //   getThread.getThreads!.data![index].iD!,
+                                  //   context,
+                                  // );
+                                },
+                                child: Image.asset(
+                                  'assets/icons/arrow-up.png',
+                                  width: 13,
+                                  height: 13,
+                                  color: Colors.white,
+                                ),
                               ),
                               const SizedBox(
                                 width: 5,
@@ -299,12 +332,22 @@ class ForYou extends StatelessWidget {
                       const SizedBox(
                         width: 6,
                       ),
-                      Text(
-                        'Comment',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xffF6F7FC),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => const CommentPage()),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Comment',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xffF6F7FC),
+                          ),
                         ),
                       ),
                       const Expanded(

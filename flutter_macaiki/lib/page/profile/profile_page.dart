@@ -71,7 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     const SizedBox(
                       height: 9,
                     ),
-                    yourPost(context)
+                    YourPost()
                   ],
                 ),
               ))

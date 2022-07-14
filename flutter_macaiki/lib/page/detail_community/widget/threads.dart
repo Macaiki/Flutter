@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_macaiki/page/detail_community/detail_about_community.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:readmore/readmore.dart';
 
@@ -20,6 +21,27 @@ Widget threads(BuildContext context) {
                 color: const Color(0xffBC6FF1),
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(
+              width: 30,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DetailAboutCommunity(),
+                  ),
+                );
+              },
+              child: Text(
+                'About',
+                style: GoogleFonts.poppins(
+                  color: const Color(0xffF6F7FC),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ],

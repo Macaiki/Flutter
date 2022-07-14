@@ -127,7 +127,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               getThread.getThreads != null
                   ? const ForYou()
                   : const Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        backgroundColor: Colors.grey,
+                        color: Color(0xffBC6FF1),
+                      ),
                     ),
               const Trending(),
               const Community(),
@@ -142,6 +145,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               MaterialPageRoute(
                 builder: (context) => const WriteThreadPage(),
               ),
+            ).then(
+              (value) => {
+                Provider.of<GetThreadsProvider>(context).getAllThreads(),
+                print('test'),
+              },
             );
           },
           child: Image.asset(

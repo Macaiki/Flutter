@@ -30,10 +30,10 @@ class TrendingPage extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/Group5.png',
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width,
               ),
               Container(
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                   color: Color(0xff262626),
                 ),
@@ -143,29 +143,29 @@ class TrendingPage extends StatelessWidget {
                 },
                 child: Image.asset(
                   'assets/images/Group6.png',
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                 ),
               ),
               Container(
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(color: Color(0xff262626)),
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 9,
                     left: 18,
                   ),
-                  child: Column(
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const TrendingPageAll(),
-                            ),
-                          );
-                        },
-                        child: Row(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TrendingPageAll(),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Row(
                           children: [
                             Image.asset(
                               'assets/images/pic.png',
@@ -183,23 +183,23 @@ class TrendingPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 35,
-                          right: 15,
-                        ),
-                        child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie nibh viverra sapien maecenas sem dictumst consectetur.',
-                          style: GoogleFonts.poppins(
-                            color: const Color(0xffA5A5A5),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: 35,
+                            right: 15,
                           ),
-                          textAlign: TextAlign.justify,
+                          child: Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie nibh viverra sapien maecenas sem dictumst consectetur.',
+                            style: GoogleFonts.poppins(
+                              color: const Color(0xffA5A5A5),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            textAlign: TextAlign.justify,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               )

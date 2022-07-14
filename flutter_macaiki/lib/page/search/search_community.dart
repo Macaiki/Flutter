@@ -104,19 +104,29 @@ class SearchCommunity extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  Container(
-                    width: 110,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffBc6FF1),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Community',
-                        style: GoogleFonts.poppins(
-                          color: const Color(0xffF6F7FC),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SearchResult(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 110,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffBc6FF1),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Community',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xffF6F7FC),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),

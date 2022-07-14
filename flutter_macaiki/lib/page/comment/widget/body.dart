@@ -169,11 +169,7 @@ Widget body(BuildContext context) {
               ),
               ReadMoreText(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dui, integer dignissim imperdiet tempor, scelerisque urna a, bibendum. Congue orci lorem consectetur nibh a pharetra mi sit pellentesque.',
-                trimLines: 3,
-                colorClickableText: Colors.blue,
-                trimMode: TrimMode.Line,
-                trimCollapsedText: 'Read more',
-                trimExpandedText: 'Read Less',
+                textAlign: TextAlign.justify,
                 style: GoogleFonts.poppins(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
@@ -346,6 +342,8 @@ Widget body(BuildContext context) {
           right: 16,
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
               'assets/images/pic.png',
@@ -355,110 +353,96 @@ Widget body(BuildContext context) {
             const SizedBox(
               width: 4,
             ),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Expanded(
-                        child: SizedBox(),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                            backgroundColor: const Color(0xff181818),
-                            context: context,
-                            builder: (context) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  ListTile(
-                                    leading: Image.asset(
-                                      'assets/icons/Megaphone.png',
-                                      width: 32,
-                                      height: 32,
-                                    ),
-                                    title: Text(
-                                      'Laporkan',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: const Color(0xffF52936),
-                                      ),
-                                    ),
-                                    onTap: () {},
-                                  ),
-                                  ListTile(
-                                    leading: Image.asset(
-                                      'assets/icons/Flag.png',
-                                      width: 32,
-                                      height: 32,
-                                    ),
-                                    title: Text(
-                                      'Blokir Thread',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: const Color(0xffF6F7FC),
-                                      ),
-                                    ),
-                                    onTap: () {},
-                                  )
-                                ],
-                              );
-                            },
-                          );
-                        },
-                        child: Image.asset(
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Billie Geulish',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xffF6F7FC),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Image.asset(
+                          'assets/icons/dot.png',
+                          width: 4,
+                          height: 18,
+                          color: const Color(0xffA5A5A5),
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          '2 days ago',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xffA5A5A5),
+                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 142,
+                        ),
+                        Image.asset(
                           'assets/icons/Option_Button.png',
                           height: 20,
                           width: 20,
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Wah ternyata deket sama kampung saya itu, \n500 km lah kira-kira jaraknya. Ketik 1 untuk \nshare location',
-                        style: GoogleFonts.poppins(
-                          color: const Color(0xffF6F7FC),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Wah ternyata',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xffF6F7FC),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          textAlign: TextAlign.justify,
                         ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.favorite_outline,
-                            size: 17,
-                          ),
-                          const SizedBox(
-                            width: 11,
-                          ),
-                          Text(
-                            'replay',
-                            style: GoogleFonts.poppins(
-                              color: const Color(0xffA5A5A5),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
+                        const SizedBox(
+                          height: 7,
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.favorite_border_outlined,
+                              size: 17,
+                              color: Colors.white,
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
+                            const SizedBox(
+                              width: 11,
+                            ),
+                            Text(
+                              'Replay',
+                              style: GoogleFonts.poppins(
+                                color: const Color(0xffA5A5A5),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
       ),

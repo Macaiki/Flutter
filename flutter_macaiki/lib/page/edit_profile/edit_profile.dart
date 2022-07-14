@@ -39,6 +39,7 @@ class _EditProfileState extends State<EditProfile> {
             ),
             child: InkWell(
               onTap: () {
+                _onLoading();
                 updateUser.update(
                   nameController.text,
                   bioController.text,
@@ -305,6 +306,22 @@ class _EditProfileState extends State<EditProfile> {
           ],
         ),
       ),
+    );
+  }
+
+  void _onLoading() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Container(
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator(
+            backgroundColor: Colors.grey,
+            color: Color(0xffBC6FF1),
+          ),
+        );
+      },
     );
   }
 }

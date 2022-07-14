@@ -223,6 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: InkWell(
                     onTap: () {
+                      _onLoading();
                       userProvider.login(
                         _emailController.text,
                         _passwordController.text,
@@ -279,6 +280,22 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+    );
+  }
+
+  void _onLoading() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Container(
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator(
+            backgroundColor: Colors.grey,
+            color: Color(0xffBC6FF1),
+          ),
+        );
+      },
     );
   }
 }

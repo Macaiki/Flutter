@@ -12,6 +12,7 @@ class DetailCommunity extends StatefulWidget {
 }
 
 class _DetailCommunityState extends State<DetailCommunity> {
+  bool isPressed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,23 +47,49 @@ class _DetailCommunityState extends State<DetailCommunity> {
                             backgroundImage:
                                 AssetImage('assets/images/Ellipse5.png'),
                           ),
-                          Container(
-                            width: 99,
-                            height: 32,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffBC6FF1),
-                              borderRadius: BorderRadius.circular(7),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Follow',
-                                style: GoogleFonts.poppins(
-                                  color: const Color(0xffF7F6FC),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                isPressed = !isPressed;
+                              });
+                            },
+                            child: isPressed
+                                ? Container(
+                                    width: 99,
+                                    height: 32,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xffA5A5A5),
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Following',
+                                        style: GoogleFonts.poppins(
+                                          color: const Color(0xffF7F6FC),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    width: 99,
+                                    height: 32,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xffBC6FF1),
+                                      borderRadius: BorderRadius.circular(7),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Follow',
+                                        style: GoogleFonts.poppins(
+                                          color: const Color(0xffF7F6FC),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                           ),
                         ],
                       ),
