@@ -8,9 +8,6 @@ class UpVoteProvider extends ChangeNotifier {
 
   void upVote(final int id, BuildContext context) async {
     getThreads = await upVoteService.upVote(id);
-    if (getThreads == null) {
-      Navigator.pop(context);
-    }
     notifyListeners();
   }
 }

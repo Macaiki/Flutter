@@ -59,21 +59,24 @@ class Data {
   String? updatedAt;
   int? likesCount;
   int? isLiked;
+  int? isFollowed;
 
-  Data(
-      {this.iD,
-      this.title,
-      this.body,
-      this.communityID,
-      this.imageURL,
-      this.userID,
-      this.userName,
-      this.userProfession,
-      this.userProfilePictureURL,
-      this.createdAt,
-      this.updatedAt,
-      this.likesCount,
-      this.isLiked});
+  Data({
+    this.iD,
+    this.title,
+    this.body,
+    this.communityID,
+    this.imageURL,
+    this.userID,
+    this.userName,
+    this.userProfession,
+    this.userProfilePictureURL,
+    this.createdAt,
+    this.updatedAt,
+    this.likesCount,
+    this.isLiked,
+    this.isFollowed,
+  });
 
   Data.fromJson(Map<String, dynamic> json) {
     iD = json['ID'];
@@ -89,6 +92,7 @@ class Data {
     updatedAt = json['updatedAt'];
     likesCount = json['likesCount'];
     isLiked = json['isLiked'];
+    isFollowed = json['isFollowed'];
   }
 
   Map<String, dynamic> toJson() {
@@ -106,6 +110,7 @@ class Data {
     data['updatedAt'] = updatedAt;
     data['likesCount'] = likesCount;
     data['isLiked'] = isLiked;
+    data['isFollowed'] = isFollowed;
     return data;
   }
 }

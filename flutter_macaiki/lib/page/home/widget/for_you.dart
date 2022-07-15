@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/comment/comment_page.dart';
 import 'package:flutter_macaiki/provider/get_threads_provider.dart';
+import 'package:flutter_macaiki/provider/up_vote_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
@@ -19,7 +20,7 @@ class _ForYouState extends State<ForYou> {
     final getThread = Provider.of<GetThreadsProvider>(
       context,
     );
-    // final upVote = Provider.of<UpVoteProvider>(context);
+    final upVote = Provider.of<UpVoteProvider>(context);
     return ListView.builder(
       itemCount: getThread.getThreads!.data!.length,
       itemBuilder: (BuildContext context, index) {
@@ -87,11 +88,20 @@ class _ForYouState extends State<ForYou> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        setState(() {
-                                          isPressed = !isPressed;
-                                        });
+                                        if (getThread.getThreads!.data![index]
+                                                .isFollowed ==
+                                            0) {
+                                          getThread.getThreads!.data![index]
+                                              .isFollowed = 1;
+                                        } else {
+                                          getThread.getThreads!.data![index]
+                                              .isFollowed = 0;
+                                        }
+                                        setState(() {});
                                       },
-                                      child: isPressed
+                                      child: getThread.getThreads!.data![index]
+                                                  .isFollowed ==
+                                              0
                                           ? Text(
                                               'Following',
                                               style: GoogleFonts.poppins(
@@ -270,27 +280,63 @@ class _ForYouState extends State<ForYou> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  // upVote.upVote(
-                                  //   getThread.getThreads!.data![index].iD!,
-                                  //   context,
-                                  // );
+                                  upVote.upVote(
+                                    getThread.getThreads!.data![index].iD!,
+                                    context,
+                                  );
+                                  if (getThread
+                                          .getThreads!.data![index].isLiked ==
+                                      0) {
+                                    getThread.getThreads!.data![index].isLiked =
+                                        1;
+                                  } else {
+                                    getThread.getThreads!.data![index].isLiked =
+                                        0;
+                                  }
+                                  setState(() {});
                                 },
                                 child: Image.asset(
                                   'assets/icons/arrow-up.png',
                                   width: 13,
                                   height: 13,
-                                  color: Colors.white,
+                                  color: getThread.getThreads!.data![index]
+                                              .isLiked ==
+                                          0
+                                      ? const Color(0xffBC6FF1)
+                                      : Colors.white,
                                 ),
                               ),
                               const SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                '102 K',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color(0xffF6F7FC),
+                              InkWell(
+                                onTap: () {
+                                  upVote.upVote(
+                                    getThread.getThreads!.data![index].iD!,
+                                    context,
+                                  );
+                                  if (getThread
+                                          .getThreads!.data![index].isLiked ==
+                                      0) {
+                                    getThread.getThreads!.data![index].isLiked =
+                                        1;
+                                  } else {
+                                    getThread.getThreads!.data![index].isLiked =
+                                        0;
+                                  }
+                                  setState(() {});
+                                },
+                                child: Text(
+                                  '102 K',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: getThread.getThreads!.data![index]
+                                                .isLiked ==
+                                            0
+                                        ? const Color(0xffBC6FF1)
+                                        : Colors.white,
+                                  ),
                                 ),
                               ),
                             ],

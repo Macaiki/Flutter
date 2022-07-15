@@ -11,7 +11,6 @@ class UpVoteService {
         '${Endpoint1.url}/threads/$id/upvotes',
       );
       print(response.data);
-      return GetThreads.fromJson(response.data);
     } catch (e) {
       print(
         e.toString(),
