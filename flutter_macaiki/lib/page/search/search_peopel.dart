@@ -17,7 +17,7 @@ class SearchPeopel extends StatefulWidget {
 class _SearchPeopelState extends State<SearchPeopel> {
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback(
+    WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
         Provider.of<GetAllUserProvider>(context, listen: false).getAllUser();
       },

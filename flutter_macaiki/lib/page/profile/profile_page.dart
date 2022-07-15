@@ -18,7 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<GetUserProvider>(context, listen: false).getUserToken();
     });
   }
@@ -48,33 +48,34 @@ class _ProfilePageState extends State<ProfilePage> {
             height: 6,
           ),
           Container(
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Color(0xff181818),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Color(0xff181818),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 7,
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 7,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Your Post',
-                      style: GoogleFonts.poppins(
-                        color: const Color(0xffF6F7FC),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Your Post',
+                    style: GoogleFonts.poppins(
+                      color: const Color(0xffF6F7FC),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
                     ),
-                    const SizedBox(
-                      height: 9,
-                    ),
-                    const YourPost()
-                  ],
-                ),
-              ),),
+                  ),
+                  const SizedBox(
+                    height: 9,
+                  ),
+                  const YourPost()
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: const Navbar(),

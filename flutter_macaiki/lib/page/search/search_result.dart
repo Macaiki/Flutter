@@ -21,7 +21,7 @@ class _SearchResultState extends State<SearchResult> {
   bool isPressed1 = false;
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback(
+    WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
         Provider.of<GetAllUserProvider>(context, listen: false).getAllUser();
       },

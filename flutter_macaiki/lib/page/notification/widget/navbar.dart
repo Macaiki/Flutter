@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_macaiki/page/home/home_page.dart';
 import 'package:flutter_macaiki/page/profile/profile_page.dart';
+import 'package:flutter_macaiki/page/trending/trending_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Navbar extends StatelessWidget {
@@ -55,10 +56,20 @@ class Navbar extends StatelessWidget {
               top: 13,
               bottom: 3.75,
             ),
-            child: Image.asset(
-              'assets/icons/Community.png',
-              width: 22.5,
-              height: 23.11,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const TrendingPage()),
+                  ),
+                );
+              },
+              child: Image.asset(
+                'assets/icons/Community.png',
+                width: 22.5,
+                height: 23.11,
+              ),
             ),
           ),
           label: 'Trending',
